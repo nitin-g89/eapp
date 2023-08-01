@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" type="text/css" href="static\css\form.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/register", method="POST" class="validation-form">
+            <h2>User Registration</h2>
+            <p>{{error}}</p>
+            <div class="form-group">
+               <label for="name">Name</label>
+               <input type="text" id="name" name="name" required>             
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="number" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea rows="4" cols="50" name="address"></textarea>
+            </div>
+
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </form>
+    </div>
+</body>
+</html>

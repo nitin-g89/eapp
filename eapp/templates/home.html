@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %} SmartShop On-The-Go {% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="static\css\home.css">
+{% endblock %}
+
+{% block nav %}
+<li class="nav-item">
+    <a class="nav-link" href="/Cart/{{userid}}">Cart</a>
+</li>
+{% endblock %}
+
+{% block body %}
+    {% for cat in CategoryData %}
+        <div class="wd">
+            <div class = cat-title-container>
+                <div class="cat-title">{{cat.category_name}}</div>
+            </div>
+            <div class="categoryContainer">
+                {% for product in cat.products %}
+                    <div class = "productCard">
+                        <div class="productImage">
+                            <img src="{{product.image}}" width="140" height="140">
+                        </div>
+                        <div class="productTitle">{{product.product_name}}</div>
+                        <div class="card-bottom">
+                            <div class="productPrice">₹{{product.price}}</div>
+                            <div class="kart">
+                                <form action = "/add_to_cart" method="POST">
+                                    <input type="hidden" name="product_id" value="{{product.productid}}">
+                                    <button class="add_to_cart" type="submit">Add</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
